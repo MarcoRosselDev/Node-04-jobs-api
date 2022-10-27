@@ -4,8 +4,8 @@ const { BadRequestError } = require("../errors");
 
 const register = async (req, res) => {
   const { name, email, password } = req.body;
-  if (!name || !email || password) {
-    throw new BadRequestError("Please provide name email and password");
+  if (!name || !email || !password) {
+    throw new BadRequestError("please provide name, email and password");
   }
   // bad practis
   const user = await User.create({ ...req.body });
