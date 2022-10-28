@@ -15,7 +15,8 @@ const register = async (req, res) => {
 
   const { name, email, password } = req.body;
 
-  const salt = await bcrypt.getSalt(10);
+  const salt = await bcrypt.genSalt(10); // numero más alto más proceso pero más encryptado
+  // 10 es por defecto pero es más que seguro
   const hashedPassword = await bcrypt.hash(password, salt);
 
   const tempUser = { name, email, password: hashedPassword };
