@@ -64,6 +64,7 @@ const deleteJob = async (req, res) => {
     throw new NotFoundError(`No job with id ${jobId}`);
   }
   res.status(StatusCodes.OK).send();
+  // no se devuelve nada (.send()) por lo que no veremos una respuesta aparte del 200
 };
 
 module.exports = {
